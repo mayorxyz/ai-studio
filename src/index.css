@@ -10,111 +10,114 @@
   --color-text-dim: #555555;
   --color-accent: #00ff88;
   --color-accent-dim: #00cc6a;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-serif: 'Playfair Display', serif;
+
+  /* One typeface everywhere: font-sans, font-mono and font-serif all resolve to it */
+  --font-sans: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-serif: 'JetBrains Mono', ui-monospace, monospace;
+
+  --animate-ticker: ticker 35s linear infinite;
+  --animate-fade-up: fadeUp 0.4s ease-out forwards;
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes drawLine {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes drawLineY {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  @keyframes maskReveal {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Base: Tailwind preflight already resets margin, padding and box-sizing.
+   Do not re-add a `* { margin: 0; padding: 0 }` reset: unlayered rules beat
+   Tailwind's layered utilities and cancel every p-*, m-*, gap-adjacent spacing class. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, *::before, *::after {
+    font-style: normal !important;
+    font-synthesis-style: none;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong, b {
+    font-weight: 800;
+  }
+
+  button, input, select, textarea {
+    font-weight: inherit;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Custom utilities (usable with variants, e.g. md:btn-sweep) */
+@utility animate-ticker-pause {
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::selection {
-  background: var(--color-accent);
-  color: var(--color-bg);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-line-strong);
-}
-
-/* Ticker animation */
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-ticker {
-  animation: ticker 35s linear infinite;
-}
-
-.animate-ticker:hover {
-  animation-play-state: paused;
-}
-
-/* Frame line draw */
-@keyframes drawLine {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-@keyframes drawLineY {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
-}
-
-/* Fade up */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.4s ease-out forwards;
-}
-
-/* Mask reveal */
-@keyframes maskReveal {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-/* Button sweep */
-.btn-sweep {
+@utility btn-sweep {
   position: relative;
   overflow: hidden;
-}
-.btn-sweep::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--color-accent);
-  transform: translateX(-100%);
-  transition: transform 0.18s ease;
-  z-index: 0;
-}
-.btn-sweep:hover::before {
-  transform: translateX(0);
-}
-.btn-sweep > * {
-  position: relative;
-  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-accent);
+    transform: translateX(-100%);
+    transition: transform 0.18s ease;
+    z-index: 0;
+  }
+  &:hover::before {
+    transform: translateX(0);
+  }
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
-/* Noise overlay */
-.noise-overlay {
+@utility noise-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -123,7 +126,6 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
