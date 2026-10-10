@@ -1,6 +1,6 @@
 import type { Workshop } from './types';
 
 export const workshops: Workshop[] = [
-  { slug: 'ai-video-fundamentals', title: 'AI Video Fundamentals', curriculum: ['Introduction to AI video tools', 'Prompt engineering for video', 'Workflow design', 'Quality control', 'Delivery and optimization'], duration: '2 days', price: '€1,500', description: 'Comprehensive introduction to AI-assisted video production.', color: '#0d2137', placeholder: true },
-  { slug: 'advanced-ai-pipelines', title: 'Advanced AI Pipelines', curriculum: ['ComfyUI deep dive', 'Custom model training', 'Automation at scale', 'API integration', 'Production deployment'], duration: '3 days', price: '€2,500', description: 'Build production-ready AI video pipelines.', color: '#1a2e1a', placeholder: true },
+  { slug: 'engine-fundamentals', title: 'Engine Fundamentals', curriculum: ['Editor overview', 'Scene management', 'Components & systems', 'Scripting basics', 'Building your first game'], duration: '2 days', price: '€800', description: 'Learn the basics of game development with Nocturn Engine.', color: '#0a1a2a', placeholder: true },
+  { slug: 'advanced-rendering', title: 'Advanced Rendering', curriculum: ['PBR materials', 'Shader graph', 'Lighting & GI', 'Post-processing', 'Performance optimization'], duration: '3 days', price: '€1,200', description: 'Master real-time rendering techniques and optimization.', color: '#1a2a1a', placeholder: true },
 ];

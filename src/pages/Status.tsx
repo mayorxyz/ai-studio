@@ -12,10 +12,10 @@ export default function Status() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="Production"
-        accentWord="capacity."
-        description="Current availability and booking status."
-        caption={{ index: '01', label: 'STATUS' }}
+        title="Release"
+        accentWord="roadmap."
+        description="Current development status and upcoming releases."
+        caption={{ index: '01', label: 'ROADMAP' }}
       />
       
       <Section className="p-4 lg:p-8">

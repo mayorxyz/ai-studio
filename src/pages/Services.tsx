@@ -14,10 +14,10 @@ export default function Services() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="What we"
-        accentWord="make."
-        description="From AI-generated content to hand-crafted animation. Every service is built around your story, your timeline, and your audience."
-        caption={{ index: '01', label: 'SERVICES', right: `${services.length} CAPABILITIES` }}
+        title="Engine"
+        accentWord="features."
+        description="Everything you need to build, ship, and scale games. From rendering to netcode, all in one engine."
+        caption={{ index: '01', label: 'FEATURES', right: `${services.length} MODULES` }}
       />
       <Section className="p-4 lg:p-8">
         <div className="space-y-px bg-[var(--color-line)]">

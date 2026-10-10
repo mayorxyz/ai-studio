@@ -7,14 +7,14 @@ import { Seo } from '../components/Seo';
 import { routes } from '../config/routes';
 
 const tools = [
-  { name: 'Blender', role: '3D Animation & VFX' },
-  { name: 'After Effects', role: 'Motion Design & Compositing' },
-  { name: 'DaVinci Resolve', role: 'Color Grading & Edit' },
-  { name: 'ComfyUI', role: 'AI Pipeline Orchestration' },
-  { name: 'Runway', role: 'AI Video Generation' },
-  { name: 'Midjourney', role: 'Concept Art & Textures' },
-  { name: 'ElevenLabs', role: 'AI Voice & Narration' },
-  { name: 'Cinema 4D', role: '3D Motion Graphics' },
+  { name: 'Rendering Pipeline', role: 'PBR + Real-Time GI' },
+  { name: 'Physics Engine', role: 'Deterministic Simulation' },
+  { name: 'ECS Framework', role: 'Entity Component System' },
+  { name: 'Scripting Runtime', role: 'Lua + TypeScript' },
+  { name: 'Netcode Stack', role: 'Multiplayer Infrastructure' },
+  { name: 'Audio Engine', role: 'Spatial Audio + Mixing' },
+  { name: 'Animation System', role: 'Skeletal + State Machines' },
+  { name: 'Asset Pipeline', role: 'Import + Processing' },
 ];
 
 export default function Process() {
@@ -24,9 +24,9 @@ export default function Process() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="How it"
-        accentWord="works."
-        description="A transparent, structured process from first call to final delivery. No surprises, no black boxes."
+        title="Install to"
+        accentWord="ship."
+        description="From download to deployment. Our workflow gets you from zero to shipped game fast."
         caption={{ index: '01', label: 'WORKFLOW', right: '5 STEPS' }}
       />
       <Section className="p-4 lg:p-8">

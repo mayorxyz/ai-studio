@@ -148,28 +148,28 @@ export function HeroSection({ name, city, tickerItems }: { name: string; city: s
         </motion.div>
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.6 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
           <span className="inline-block overflow-hidden">
-            <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ delay: 0.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="inline-block">We make </motion.span>
+            <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ delay: 0.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="inline-block">Build </motion.span>
           </span>
           <span className="inline-block overflow-hidden">
-            <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ delay: 0.65, duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="inline-block italic font-serif text-[var(--color-accent)]">moving</motion.span>
+            <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ delay: 0.65, duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="inline-block italic font-serif text-[var(--color-accent)]">games.</motion.span>
           </span>
           <span className="inline-block overflow-hidden">
-            <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ delay: 0.8, duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="inline-block"> pictures.</motion.span>
+            <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ delay: 0.8, duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="inline-block"> Ship fast.</motion.span>
           </span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.5 }} className="mt-6 text-base md:text-lg text-[var(--color-text-muted)] max-w-lg mx-auto leading-relaxed">
-          AI-assisted video, animation, and storytelling for brands that move fast and think forward.
+          Open-source game engine with real-time rendering, physics, ECS, scripting, and multiplayer. Free forever, no royalties.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.5 }} className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Link to="/reel" className="inline-flex items-center gap-2 bg-white text-black font-mono text-[11px] tracking-wider px-6 py-3 hover:bg-[var(--color-accent)] transition-colors">
-            ▶ WATCH THE REEL
+          <Link to="/start" className="inline-flex items-center gap-2 bg-white text-black font-mono text-[11px] tracking-wider px-6 py-3 hover:bg-[var(--color-accent)] transition-colors">
+            ↓ DOWNLOAD ENGINE
           </Link>
-          <Link to="/contact" className="inline-flex items-center gap-2 border border-[var(--color-line-strong)] text-white font-mono text-[11px] tracking-wider px-6 py-3 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors">
-            START A PROJECT
+          <Link to="/work" className="inline-flex items-center gap-2 border border-[var(--color-line-strong)] text-white font-mono text-[11px] tracking-wider px-6 py-3 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors">
+            VIEW SHOWCASES
           </Link>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 0.5 }} className="mt-12 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">
-          AI FILM · ANIMATION · AUTOMATION · {city.toUpperCase()}
+          REAL-TIME RENDERING · PHYSICS · ECS · SCRIPTING · NETCODE · {city.toUpperCase()}
         </motion.div>
       </div>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2, duration: 0.5 }} className="absolute bottom-8 left-1/2 -translate-x-1/2">

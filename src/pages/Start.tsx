@@ -8,16 +8,16 @@ import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 const steps = [
   {
-    title: 'What type of project?',
-    options: ['Brand Film', 'Animation', 'AI Video', 'Video Automation', 'Motion Design', 'Other'],
+    title: 'What are you building?',
+    options: ['2D Game', '3D Game', 'VR/AR Experience', 'Simulation', 'Multiplayer Game', 'Other'],
   },
   {
-    title: 'What\'s your budget?',
-    options: ['€3,000 – €5,000', '€5,000 – €10,000', '€10,000 – €20,000', '€20,000+', 'Monthly retainer'],
+    title: 'Team size?',
+    options: ['Solo developer', '2-5 people', '6-20 people', '20+ people', 'Enterprise'],
   },
   {
-    title: 'When do you need it?',
-    options: ['ASAP', '2–4 weeks', '1–2 months', 'Flexible'],
+    title: 'Target platforms?',
+    options: ['PC (Windows/Mac/Linux)', 'Mobile (iOS/Android)', 'Console (PS/Xbox/Switch)', 'Web (WebAssembly)', 'VR Headsets'],
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Start() {
           <div className="mb-8">
             <div className="font-mono text-[10px] tracking-wider text-[var(--color-accent)] mb-2">STEP {currentStep + 1} OF {steps.length}</div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Start a <span className="italic font-serif text-[var(--color-accent)]">project.</span>
+              Get <span className="italic font-serif text-[var(--color-accent)]">started.</span>
             </h1>
           </div>
 

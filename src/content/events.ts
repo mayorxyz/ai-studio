@@ -1,7 +1,7 @@
 import type { Event } from './types';
 
 export const events: Event[] = [
-  { slug: 'ai-video-workshop-berlin-2025', title: 'AI Video Production Workshop', type: 'workshop', date: '2025-03-15', location: 'Berlin, DE', description: 'Hands-on workshop covering AI video generation pipelines.', link: 'https://example.com', past: false, color: '#0d2137', placeholder: true },
-  { slug: 'motion-design-talk-2025', title: 'The Future of Motion Design', type: 'talk', date: '2025-02-20', location: 'Online', description: 'Talk on how AI is transforming motion design workflows.', link: 'https://example.com', past: false, color: '#1a1a2e', placeholder: true },
-  { slug: 'echo-screening-2024', title: 'Echo — Short Film Screening', type: 'screening', date: '2024-10-12', location: 'Berlin, DE', description: 'Public screening of our AI-generated short film Echo.', past: true, color: '#2a1a1a', placeholder: true },
+  { slug: 'gdc-2025', title: 'GDC 2025 — Engine Showcase', type: 'talk', date: '2025-03-18', location: 'San Francisco, USA', description: 'Live demo of Nocturn Engine at the Game Developers Conference.', link: 'https://example.com', past: false, color: '#0a1a2a', placeholder: true },
+  { slug: 'nocturn-conf-2025', title: 'NocturnConf 2025', type: 'talk', date: '2025-05-10', location: 'Berlin, DE', description: 'Our annual developer conference with talks, workshops, and networking.', link: 'https://example.com', past: false, color: '#1a2a1a', placeholder: true },
+  { slug: 'game-jam-2024', title: 'Nocturn Game Jam 2024', type: 'workshop', date: '2024-10-12', location: 'Online', description: '48-hour game jam using Nocturn Engine. €10K in prizes.', past: true, color: '#2a1a0a', placeholder: true },
 ];

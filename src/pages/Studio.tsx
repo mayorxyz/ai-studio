@@ -6,18 +6,18 @@ import { PageHeader, ManifestoText, CTASection } from '../components/sections';
 import { Seo } from '../components/Seo';
 import { routes } from '../config/routes';
 
-const manifestoText = "We believe the future of visual storytelling lives at the intersection of human creativity and machine intelligence. We don't replace artists — we amplify them. Every frame we produce is a collaboration between craft and code.";
+const manifestoText = "We believe game development should be accessible, performant, and transparent. We build engines that give developers control, not constraints. Every line of code we ship is open, documented, and built for the next generation of games.";
 
 const values = [
-  { letter: 'A', title: 'Craft Over Speed', desc: 'We use AI to accelerate production, never to replace creative thinking. Every output is human-directed and human-curated.' },
-  { letter: 'B', title: 'Transparency Always', desc: 'Open process, open pricing, open communication. You see everything we see, from storyboard to final render.' },
-  { letter: 'C', title: 'Push The Edge', desc: 'We invest 20% of our time in R&D. The tools we build today become the services we offer tomorrow.' },
+  { letter: 'A', title: 'Open Source', desc: 'Full source access with every license. Modify, extend, and understand every part of the engine.' },
+  { letter: 'B', title: 'Performance First', desc: 'Every feature is benchmarked and optimized. We ship engines that run at 120fps, not 30.' },
+  { letter: 'C', title: 'Developer Experience', desc: 'Clean APIs, great docs, and tools that stay out of your way. Build more, fight less.' },
 ];
 
 const timeline = [
-  { year: '2025', event: 'Launched AI video automation division' },
-  { year: '2024', event: 'Expanded to 6-person team, Berlin studio' },
-  { year: '2023', event: 'First AI-generated short film, Vimeo Staff Pick' },
+  { year: '2025', event: 'v1.0 release — full engine with all modules' },
+  { year: '2024', event: 'Public beta, 10K+ developers on Discord' },
+  { year: '2023', event: 'Open-sourced rendering pipeline under MIT' },
   { year: '2022', event: 'Founded by Alex Chen and Maya Torres' },
 ];
 

@@ -14,9 +14,9 @@ export default function Reel() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="The"
+        title="Engine"
         accentWord="reel."
-        description="Our latest showreel showcasing the best of our work from the past year."
+        description="See what Nocturn Engine can do. Real-time rendering, physics, and multiplayer in action."
       />
       
       <Section className="p-4 lg:p-8">
@@ -60,7 +60,7 @@ export default function Reel() {
       <CaptionStrip index="01" label="HIGHLIGHTS" />
       <Section className="p-4 lg:p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {['Brand Films', 'AI Video', 'Animation'].map((category, i) => (
+          {['Rendering', 'Physics', 'Multiplayer'].map((category, i) => (
             <div key={category} className="border border-[var(--color-line)] p-6 text-center hover:border-[var(--color-accent)]/30 transition-colors">
               <div className="font-mono text-[10px] text-[var(--color-accent)] mb-2">CHAPTER {String(i + 1).padStart(2, '0')}</div>
               <div className="text-lg font-semibold">{category}</div>

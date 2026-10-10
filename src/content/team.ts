@@ -1,10 +1,10 @@
 import type { TeamMember } from './types';
 
 export const team: TeamMember[] = [
-  { name: 'Alex Chen', role: 'Creative Director', bio: '10 years in film and motion. Previously at Buck and ManvsMachine.', placeholder: true },
-  { name: 'Maya Torres', role: 'AI Engineer', bio: 'Built generative pipelines at Runway and Stability AI.', placeholder: true },
-  { name: 'Jonas Weber', role: 'Producer', bio: 'Managed 200+ productions. Obsessed with timelines and budgets.', placeholder: true },
-  { name: 'Priya Sharma', role: 'Animation Lead', bio: 'Character animation specialist. Blender contributor.', placeholder: true },
-  { name: 'Luca Rossi', role: 'Editor & Colorist', bio: 'DaVinci certified. Color is storytelling.', placeholder: true },
-  { name: 'Sara Kim', role: 'Sound Designer', bio: 'Audio for film and games. Spatial audio specialist.', placeholder: true },
+  { name: 'Alex Chen', role: 'Engine Architect', bio: '15 years in game engines. Previously at Epic and id Software.', placeholder: true },
+  { name: 'Maya Torres', role: 'Rendering Lead', bio: 'Graphics programmer. Published researcher in real-time GI.', placeholder: true },
+  { name: 'Jonas Weber', role: 'Physics Engineer', bio: 'Built physics for 20+ shipped titles. Deterministic simulation expert.', placeholder: true },
+  { name: 'Priya Sharma', role: 'Tools & Editor', bio: 'UI/UX for developer tools. Previously at Unity and Autodesk.', placeholder: true },
+  { name: 'Luca Rossi', role: 'Networking Engineer', bio: 'Multiplayer infrastructure at scale. Ex-Riot Games.', placeholder: true },
+  { name: 'Sara Kim', role: 'Audio Systems', bio: 'Spatial audio and procedural sound. Shipped 3 AAA titles.', placeholder: true },
 ];

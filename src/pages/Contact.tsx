@@ -27,9 +27,9 @@ export default function Contact() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="Start a"
-        accentWord="project."
-        description="Tell us about your project and we'll get back to you within 24 hours with a plan and quote."
+        title="Get in"
+        accentWord="touch."
+        description="Questions about the engine? Need enterprise support? Want to partner? We'd love to hear from you."
         caption={{ index: '01', label: 'CONTACT' }}
       />
       <Section className="p-4 lg:p-8">

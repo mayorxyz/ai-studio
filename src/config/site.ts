@@ -2,7 +2,7 @@ import { studio } from '../content/studio';
 
 export const site = {
   name: studio.name,
-  fullName: `${studio.name} STUDIO`,
+  fullName: `${studio.name} ENGINE`,
   url: studio.url,
   tagline: studio.tagline,
   theme: {
@@ -17,32 +17,33 @@ export const site = {
   footer: {
     groups: [
       {
-        title: 'NAVIGATE',
+        title: 'ENGINE',
         links: [
-          { label: 'Home', path: '/' },
-          { label: 'Work', path: '/work' },
-          { label: 'Services', path: '/services' },
+          { label: 'Features', path: '/services' },
+          { label: 'Showcases', path: '/work' },
           { label: 'Process', path: '/process' },
-          { label: 'Studio', path: '/studio' },
           { label: 'Pricing', path: '/pricing' },
+          { label: 'Download', path: '/start' },
         ],
       },
       {
-        title: 'CONNECT',
+        title: 'DEVELOPERS',
         links: [
-          { label: 'Instagram', path: studio.socials.instagram },
-          { label: 'Vimeo', path: studio.socials.vimeo },
-          { label: 'YouTube', path: studio.socials.youtube },
-          { label: 'LinkedIn', path: studio.socials.linkedin },
+          { label: 'Documentation', path: '/resources' },
+          { label: 'Tutorials', path: '/journal' },
+          { label: 'API Reference', path: '/resources' },
+          { label: 'Community', path: '/studio' },
+          { label: 'Workshops', path: '/workshops' },
         ],
       },
       {
-        title: 'INFO',
+        title: 'COMPANY',
         links: [
-          { label: 'Journal', path: '/journal' },
-          { label: 'Clients', path: '/clients' },
+          { label: 'About', path: '/studio' },
           { label: 'Careers', path: '/careers' },
-          { label: 'FAQ', path: '/faq' },
+          { label: 'Press', path: '/press' },
+          { label: 'Contact', path: '/contact' },
+          { label: 'Partners', path: '/partners' },
         ],
       },
     ],

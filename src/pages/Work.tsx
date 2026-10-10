@@ -6,7 +6,7 @@ import { PageHeader } from '../components/sections';
 import { Seo } from '../components/Seo';
 import { routes } from '../config/routes';
 
-const categories = ['ALL', 'FILM', 'ANIMATION', 'AI VIDEO', 'BRAND', 'AUTOMATION'];
+const categories = ['ALL', 'GAME', 'FRAMEWORK', 'TECH', 'INDIE', 'MULTIPLAYER'];
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState('ALL');
@@ -21,10 +21,10 @@ export default function Work() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="The"
-        accentWord="work."
-        description="A selection of films, animations, AI-generated content, and brand work from the past two years."
-        caption={{ index: '01', label: 'WORK', right: `${projects.length} PROJECTS` }}
+        title="Engine"
+        accentWord="showcases."
+        description="Games, demos, and tech built with Nocturn Engine. See what's possible."
+        caption={{ index: '01', label: 'SHOWCASES', right: `${projects.length} PROJECTS` }}
       />
       <Section className="p-4 lg:p-8">
         <div className="flex flex-wrap gap-2 mb-8">

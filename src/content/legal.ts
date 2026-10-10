@@ -7,31 +7,31 @@ export const privacyPolicy: LegalPage = {
   sections: [
     {
       heading: 'Introduction',
-      content: 'This privacy policy explains how NOCTURN Studio ("we", "us", "our") collects, uses, and protects your personal data when you use our website and services. We are committed to protecting your privacy and handling your data transparently.',
+      content: 'This privacy policy explains how Nocturn Engine ("we", "us", "our") collects, uses, and protects your personal data when you use our engine, website, and services.',
     },
     {
       heading: 'Data We Collect',
-      content: 'We collect data you provide directly (name, email, company, project details via contact forms), data collected automatically (IP address, browser type, pages visited via analytics), and data from third parties (if you engage us through a referral).',
+      content: 'We collect data you provide directly (name, email, company via registration and contact forms), telemetry data (engine usage analytics, crash reports — opt-out available), and data from third parties (GitHub, Discord).',
     },
     {
       heading: 'How We Use Data',
-      content: 'We use your data to: respond to inquiries, provide our services, send project updates, improve our website, and comply with legal obligations. We do not sell your data to third parties.',
+      content: 'We use your data to: provide engine updates and support, improve engine performance, send product updates (opt-out available), and comply with legal obligations. We do not sell your data.',
     },
     {
-      heading: 'Data Retention',
-      content: 'We retain contact form submissions for 2 years. Project data is retained for the duration of our business relationship plus 1 year for legal purposes. Analytics data is retained for 12 months.',
+      heading: 'Telemetry & Analytics',
+      content: 'The engine collects anonymous usage data to improve performance and stability. This includes feature usage, crash reports, and performance metrics. You can disable telemetry in the editor settings.',
     },
     {
       heading: 'Your Rights',
-      content: 'You have the right to access, correct, delete, or port your data. You can object to processing or withdraw consent at any time. Contact us at privacy@nocturn.studio to exercise these rights.',
+      content: 'You have the right to access, correct, delete, or port your data. You can opt out of telemetry at any time. Contact us at privacy@nocturn.dev to exercise these rights.',
     },
     {
       heading: 'Cookies',
-      content: 'We use minimal cookies for website functionality. We use Plausible Analytics which does not use cookies and respects Do Not Track. No advertising or tracking cookies are used.',
+      content: 'We use minimal cookies for website functionality and authentication. We use Plausible Analytics which does not use cookies and respects Do Not Track.',
     },
     {
       heading: 'Contact',
-      content: 'For privacy-related questions, contact us at privacy@nocturn.studio or write to NOCTURN Studio, Berlin, Germany.',
+      content: 'For privacy-related questions, contact us at privacy@nocturn.dev or write to Nocturn Engine, Berlin, Germany.',
     },
   ],
 };
@@ -43,31 +43,31 @@ export const termsOfService: LegalPage = {
   sections: [
     {
       heading: 'Agreement',
-      content: 'By engaging NOCTURN Studio for services or using our website, you agree to these terms. If you do not agree, do not use our services or website.',
+      content: 'By downloading or using Nocturn Engine, you agree to these terms. If you do not agree, do not use the engine.',
     },
     {
-      heading: 'Services',
-      content: 'We provide video production, animation, AI-assisted content creation, and related services as described in our proposals and statements of work. Specific deliverables, timelines, and pricing are agreed per project.',
+      heading: 'License',
+      content: 'Nocturn Engine is provided under the Indie, Studio, or Enterprise license depending on your selection. All licenses grant you the right to use the engine to create and distribute games and applications.',
     },
     {
-      heading: 'Payment',
-      content: 'Payment terms are 50% upfront, 50% on delivery unless otherwise agreed. Late payments incur 5% monthly interest. All prices are in EUR excluding VAT unless stated.',
+      heading: 'Your Content',
+      content: 'You own everything you create with Nocturn Engine. We claim no rights to your games, assets, or code. The engine is a tool — your creations are yours.',
     },
     {
-      heading: 'Intellectual Property',
-      content: 'Upon full payment, we transfer all rights to final deliverables as specified in your package. We retain the right to showcase work in our portfolio unless otherwise agreed. Source files are included per your package tier.',
+      heading: 'Source Code',
+      content: 'All licenses include access to the engine source code. You may modify the source for your own use. Redistribution of modified engine source requires an Enterprise license.',
     },
     {
-      heading: 'Revisions',
-      content: 'Each package includes a specified number of revision rounds. Additional revisions are billed at our hourly rate. Major scope changes require a change order.',
+      heading: 'No Royalties',
+      content: 'Nocturn Engine charges no royalties on revenue generated by your games or applications. You keep 100% of what you earn.',
+    },
+    {
+      heading: 'Support & Updates',
+      content: 'Indie license holders receive community support. Studio and Enterprise licenses include priority support with defined SLAs. All licenses receive engine updates.',
     },
     {
       heading: 'Limitation of Liability',
-      content: 'Our total liability is limited to the project fee paid. We are not liable for indirect, incidental, or consequential damages. We maintain professional indemnity insurance.',
-    },
-    {
-      heading: 'Termination',
-      content: 'Either party may terminate with 14 days written notice. On termination, you pay for work completed to date. We deliver all work-in-progress files.',
+      content: 'The engine is provided "as is" without warranty. Our total liability is limited to the amount you paid for your license. We are not liable for indirect, incidental, or consequential damages.',
     },
     {
       heading: 'Governing Law',

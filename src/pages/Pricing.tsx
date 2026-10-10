@@ -16,16 +16,16 @@ export default function Pricing() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="Simple"
-        accentWord="pricing."
-        description="Fixed quotes, no surprises. Choose a plan that fits your project scope and timeline."
-        caption={{ index: '01', label: 'PLANS' }}
+        title="Free"
+        accentWord="forever."
+        description="No royalties, no revenue cap. Pay only for cloud services and team features."
+        caption={{ index: '01', label: 'LICENSING' }}
       />
       <Section className="p-4 lg:p-8">
         <div className="flex items-center justify-center mb-8">
           <div className="inline-flex border border-[var(--color-line)]">
-            <button onClick={() => setIsRetainer(false)} className={`px-4 py-2 font-mono text-[11px] tracking-wider transition-all ${!isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'}`}>PROJECT</button>
-            <button onClick={() => setIsRetainer(true)} className={`px-4 py-2 font-mono text-[11px] tracking-wider border-l border-[var(--color-line)] transition-all ${isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'}`}>RETAINER</button>
+            <button onClick={() => setIsRetainer(false)} className={`px-4 py-2 font-mono text-[11px] tracking-wider transition-all ${!isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'}`}>LICENSES</button>
+            <button onClick={() => setIsRetainer(true)} className={`px-4 py-2 font-mono text-[11px] tracking-wider border-l border-[var(--color-line)] transition-all ${isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'}`}>CLOUD</button>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-line)]">
@@ -60,7 +60,7 @@ export default function Pricing() {
 
       <CaptionStrip index="02" label="GUARANTEES" />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--color-line)]">
-        {['FIXED QUOTES', 'REVISIONS INCLUDED', 'FULL RIGHTS TRANSFER', 'NDA ON REQUEST'].map((item) => (
+        {['NO ROYALTIES', 'SOURCE CODE ACCESS', 'ALL PLATFORMS', 'COMMERCIAL USE'].map((item) => (
           <div key={item} className="bg-[var(--color-bg)] p-4 text-center">
             <span className="font-mono text-[10px] tracking-wider text-[var(--color-text-muted)]">{item}</span>
           </div>

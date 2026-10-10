@@ -18,14 +18,14 @@ export default function Home() {
       
       <Ticker items={studio.tickerItems} />
 
-      <CaptionStrip index="01" label="SELECTED WORK" right="REAL FOOTAGE — NO MOCKUPS" />
+      <CaptionStrip index="01" label="SHOWCASES" right="BUILT WITH NOCTURN" />
       <Section className="p-4 lg:p-8">
         <div className="flex items-end justify-between mb-8">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Selected <span className="italic font-serif text-[var(--color-accent)]">work.</span>
+            See it <span className="italic font-serif text-[var(--color-accent)]">run.</span>
           </h2>
           <Link to="/work" className="hidden sm:inline-flex items-center gap-2 font-mono text-[11px] tracking-wider text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
-            VIEW ALL WORK <ArrowRight size={12} />
+            ALL SHOWCASES <ArrowRight size={12} />
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-line)]">
@@ -44,10 +44,10 @@ export default function Home() {
         </div>
       </Section>
 
-      <CaptionStrip index="02" label="SERVICES" />
+      <CaptionStrip index="02" label="ENGINE FEATURES" />
       <Section className="p-4 lg:p-8">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-          What we <span className="italic font-serif text-[var(--color-accent)]">do.</span>
+          Built for <span className="italic font-serif text-[var(--color-accent)]">performance.</span>
         </h2>
         <FeatureGrid
           columns={3}
@@ -60,20 +60,20 @@ export default function Home() {
         />
       </Section>
 
-      <CaptionStrip index="03" label="PROCESS" />
+      <CaptionStrip index="03" label="WORKFLOW" />
       <Section className="p-4 lg:p-8">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-          How it <span className="italic font-serif text-[var(--color-accent)]">works.</span>
+          Install to <span className="italic font-serif text-[var(--color-accent)]">ship.</span>
         </h2>
         <div className="relative">
           <div className="absolute top-6 left-0 right-0 h-px bg-[var(--color-line)] hidden lg:block" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-0">
             {[
-              { num: '01', title: 'Brief', desc: 'We align on goals, scope, and timeline.' },
-              { num: '02', title: 'Story & Boards', desc: 'Concept, script, and storyboard approval.' },
-              { num: '03', title: 'Production', desc: 'Shooting, animating, or generating.' },
-              { num: '04', title: 'Polish', desc: 'Color, sound, VFX, and revisions.' },
-              { num: '05', title: 'Delivery', desc: 'Final files in all formats.' },
+              { num: '01', title: 'Install', desc: 'Download and set up in minutes.' },
+              { num: '02', title: 'Prototype', desc: 'Build core gameplay with templates.' },
+              { num: '03', title: 'Production', desc: 'Scale with full engine features.' },
+              { num: '04', title: 'Polish', desc: 'Profile and optimize performance.' },
+              { num: '05', title: 'Ship', desc: 'One-click build for all platforms.' },
             ].map((step, i) => (
               <div key={i} className="relative lg:px-4">
                 <div className="relative z-10 w-12 h-12 border border-[var(--color-line)] flex items-center justify-center mb-4 bg-[var(--color-bg)]">
@@ -96,13 +96,13 @@ export default function Home() {
       </Section>
 
       <CTASection
-        eyebrow="BOOKING Q1 2025"
-        title="Let's make"
-        accentWord="something."
-        primaryLabel="START A PROJECT"
-        primaryHref="/contact"
-        secondaryLabel="EMAIL US"
-        secondaryHref={`mailto:${studio.email}`}
+        eyebrow="v1.0 RELEASED"
+        title="Start"
+        accentWord="building."
+        primaryLabel="DOWNLOAD ENGINE"
+        primaryHref="/start"
+        secondaryLabel="VIEW DOCS"
+        secondaryHref="/resources"
       />
     </>
   );

@@ -1,12 +1,12 @@
 import type { CompareRow } from './types';
 
 export const compareRows: CompareRow[] = [
-  { feature: 'Creative direction', studio: true, agency: true, inHouse: 'Varies' },
-  { feature: 'AI expertise', studio: true, agency: 'Limited', inHouse: false },
-  { feature: 'Scalability', studio: true, agency: true, inHouse: 'Limited' },
-  { feature: 'Cost efficiency', studio: true, agency: false, inHouse: 'Varies' },
-  { feature: 'Turnaround time', studio: 'Fast', agency: 'Medium', inHouse: 'Slow' },
-  { feature: 'Brand consistency', studio: true, agency: true, inHouse: true },
-  { feature: 'Full rights transfer', studio: true, agency: 'Varies', inHouse: true },
-  { feature: 'Dedicated team', studio: true, agency: false, inHouse: true },
+  { feature: 'License cost', studio: 'Free', agency: '€0 + 5% royalty', inHouse: '€2,040/yr per seat' },
+  { feature: 'Source code access', studio: true, agency: false, inHouse: false },
+  { feature: 'No royalties', studio: true, agency: false, inHouse: true },
+  { feature: 'ECS architecture', studio: true, agency: 'Plugin', inHouse: false },
+  { feature: 'Hot-reload scripts', studio: true, agency: true, inHouse: 'Limited' },
+  { feature: 'Built-in netcode', studio: true, agency: 'Plugin', inHouse: 'Plugin' },
+  { feature: 'Linux editor', studio: true, agency: false, inHouse: false },
+  { feature: 'Community & support', studio: true, agency: true, inHouse: true },
 ];

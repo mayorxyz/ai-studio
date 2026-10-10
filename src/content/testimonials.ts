@@ -2,24 +2,24 @@ import type { Testimonial } from './types';
 
 export const testimonials: Testimonial[] = [
   {
-    quote: 'Nocturn delivered a brand film that exceeded every expectation. Their AI pipeline approach saved us months of production time.',
+    quote: 'Nocturn\'s ECS architecture cut our entity processing time by 80%. We shipped our game 3 months ahead of schedule.',
     name: 'David Park',
-    role: 'CMO',
-    company: 'Aurora Labs',
+    role: 'Technical Director',
+    company: 'Ember Studios',
     placeholder: true,
   },
   {
-    quote: 'The automated video system they built processes our entire catalog daily. It\'s like having a full production team on autopilot.',
+    quote: 'The physics simulation is rock-solid. Our racing game runs at 120fps with 20 vehicles on screen, no jitter.',
     name: 'Lisa Chen',
-    role: 'Head of Content',
-    company: 'Flux Commerce',
+    role: 'Lead Programmer',
+    company: 'Horizon Games',
     placeholder: true,
   },
   {
-    quote: 'Working with Nocturn felt like working with the future. They understand both the creative and technical sides deeply.',
+    quote: 'We migrated from Unity in 2 weeks. The API is intuitive, and the performance gains were immediate.',
     name: 'Marcus Webb',
-    role: 'Founder',
-    company: 'Vertex Finance',
+    role: 'CTO',
+    company: 'Atlas Interactive',
     placeholder: true,
   },
 ];

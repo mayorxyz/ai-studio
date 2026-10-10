@@ -18,9 +18,9 @@ export default function Compare() {
     <>
       <Seo title={seo.title} description={seo.description} />
       <PageHeader
-        title="Studio vs"
-        accentWord="agency."
-        description="Compare working with a specialized studio vs traditional agencies or in-house teams."
+        title="Nocturn vs"
+        accentWord="others."
+        description="See how Nocturn Engine compares to Unity, Unreal, and other game engines."
         caption={{ index: '01', label: 'COMPARE' }}
       />
       <Section className="p-4 lg:p-8">
@@ -29,9 +29,9 @@ export default function Compare() {
             <thead>
               <tr className="border-b border-[var(--color-line)] bg-[var(--color-surface)]">
                 <th className="text-left px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">FEATURE</th>
-                <th className="text-center px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-accent)]">NOCTURN STUDIO</th>
-                <th className="text-center px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">TRADITIONAL AGENCY</th>
-                <th className="text-center px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">IN-HOUSE TEAM</th>
+                <th className="text-center px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-accent)]">NOCTURN ENGINE</th>
+                <th className="text-center px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">UNITY / UNREAL</th>
+                <th className="text-center px-4 py-3 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">CUSTOM ENGINE</th>
               </tr>
             </thead>
             <tbody>
