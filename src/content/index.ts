@@ -11,6 +11,15 @@ export { clients, clientLogos } from './clients';
 export { faqItems } from './faq';
 export { careers } from './careers';
 export { privacyPolicy, termsOfService } from './legal';
+export { showcases } from './showcases';
+export { tools } from './tools';
+export { resources } from './resources';
+export { pressItems } from './press';
+export { events } from './events';
+export { workshops } from './workshops';
+export { partners } from './partners';
+export { compareRows } from './compare';
+export { statusSlots } from './status';
 
 // Re-export types
 export type {
@@ -26,4 +35,13 @@ export type {
   StudioInfo,
   RouteConfig,
   FAQ,
+  Showcase,
+  Tool,
+  Resource,
+  PressItem,
+  Event,
+  Workshop,
+  Partner,
+  CompareRow,
+  StatusSlot,
 } from './types';

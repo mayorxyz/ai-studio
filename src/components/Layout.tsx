@@ -2,7 +2,7 @@ import { ReactNode, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { studio } from '../content';
-import { navRoutes, footerRoutes } from '../config/routes';
+import { navRoutes, footerRoutes, moreRoutes } from '../config/routes';
 import { site } from '../config/site';
 import { Menu, X, Instagram } from 'lucide-react';
 
@@ -112,7 +112,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </main>
 
       <footer className="border-t border-[var(--color-line)] lg:ml-[44px] xl:mr-[28px]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 p-8 lg:p-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 p-8 lg:p-12">
           <div className="md:col-span-1">
             <div className="font-mono text-xs text-[var(--color-text-dim)] mb-4">© 2025</div>
             <div className="text-lg font-bold tracking-tight">{site.fullName}</div>
@@ -130,6 +130,16 @@ export default function Layout({ children }: { children: ReactNode }) {
               </div>
             </div>
           ))}
+          <div>
+            <div className="font-mono text-[10px] text-[var(--color-text-dim)] mb-3 tracking-wider">MORE</div>
+            <div className="flex flex-col gap-2">
+              {moreRoutes.map((route) => (
+                <Link key={route.path} to={route.path} className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
+                  {route.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="border-t border-[var(--color-line)] px-8 py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="font-mono text-[10px] text-[var(--color-text-dim)]">

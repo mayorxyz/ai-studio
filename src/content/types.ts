@@ -141,3 +141,96 @@ export interface FAQ {
   a: string;
   group?: string;
 }
+
+export interface Showcase {
+  slug: string;
+  projectSlug: string;
+  title: string;
+  steps: { title: string; description: string; media?: string }[];
+  tools: string[];
+  beforeAfter?: { before: string; after: string; label: string }[];
+  prompts?: string[];
+  color: string;
+  placeholder?: boolean;
+}
+
+export interface Tool {
+  slug: string;
+  name: string;
+  category: string;
+  useCase: string;
+  description: string;
+  icon?: string;
+  url?: string;
+  color: string;
+  placeholder?: boolean;
+}
+
+export interface Resource {
+  slug: string;
+  title: string;
+  type: string;
+  description: string;
+  fileUrl: string;
+  tags: string[];
+  icon?: string;
+  color: string;
+  placeholder?: boolean;
+}
+
+export interface PressItem {
+  slug: string;
+  outlet: string;
+  title: string;
+  date: string;
+  type: 'mention' | 'award' | 'interview' | 'feature';
+  url?: string;
+  placeholder?: boolean;
+}
+
+export interface Event {
+  slug: string;
+  title: string;
+  type: 'talk' | 'workshop' | 'screening';
+  date: string;
+  location: string;
+  description: string;
+  link?: string;
+  past: boolean;
+  color: string;
+  placeholder?: boolean;
+}
+
+export interface Workshop {
+  slug: string;
+  title: string;
+  curriculum: string[];
+  duration: string;
+  price: string;
+  description: string;
+  color: string;
+  placeholder?: boolean;
+}
+
+export interface Partner {
+  slug: string;
+  name: string;
+  tier: 'bronze' | 'silver' | 'gold';
+  description: string;
+  logo?: string;
+  color: string;
+  placeholder?: boolean;
+}
+
+export interface CompareRow {
+  feature: string;
+  studio: boolean | string;
+  agency: boolean | string;
+  inHouse: boolean | string;
+}
+
+export interface StatusSlot {
+  month: string;
+  slots: number;
+  booked: number;
+}
