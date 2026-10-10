@@ -14,8 +14,7 @@ const __dirname = path.dirname(__filename);
 
 const SITE_URL = 'https://nocturn.studio';
 
-// Import routes (you'd need to compile TS first or use a TS loader)
-// For now, we'll hardcode the routes
+// All routes including dynamic ones (without slugs for sitemap)
 const routes = [
   '/',
   '/work',
@@ -31,6 +30,16 @@ const routes = [
   '/faq',
   '/privacy',
   '/terms',
+  '/tools',
+  '/resources',
+  '/press',
+  '/events',
+  '/workshops',
+  '/partners',
+  '/testimonials',
+  '/compare',
+  '/start',
+  '/status',
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

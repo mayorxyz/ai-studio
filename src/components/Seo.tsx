@@ -28,7 +28,7 @@ export function Seo({ title, description, image, url }: SeoProps) {
     setMeta('og:description', description, true);
     setMeta('og:type', 'website', true);
     setMeta('og:url', url || window.location.href, true);
-    if (image) setMeta('og:image', image, true);
+    setMeta('og:image', image || '/og-default.svg', true);
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
