@@ -1,0 +1,73 @@
+import type { Career } from './types';
+
+export const careers: Career[] = [
+  {
+    slug: 'senior-motion-designer',
+    title: 'Senior Motion Designer',
+    department: 'Creative',
+    location: 'Berlin / Remote',
+    type: 'Full-time',
+    description: 'We\'re looking for a senior motion designer who can lead projects from concept to delivery. You\'ll work on brand films, title sequences, and motion systems for clients across tech, finance, and entertainment.',
+    requirements: [
+      '5+ years professional motion design experience',
+      'Expert in After Effects and Cinema 4D',
+      'Strong portfolio of brand and narrative work',
+      'Experience leading creative projects',
+      'Understanding of AI tools is a plus',
+    ],
+    benefits: [
+      'Competitive salary + equity',
+      'Flexible remote/hybrid',
+      'Latest hardware and software',
+      'Conference and learning budget',
+      '30 days vacation',
+    ],
+    placeholder: true,
+  },
+  {
+    slug: 'ai-pipeline-engineer',
+    title: 'AI Pipeline Engineer',
+    department: 'Engineering',
+    location: 'Berlin / Remote',
+    type: 'Full-time',
+    description: 'Build and maintain the AI video generation pipelines that power our automated content production. You\'ll work at the intersection of creative and engineering, designing systems that produce beautiful output at scale.',
+    requirements: [
+      '3+ years Python experience',
+      'Experience with ComfyUI, Runway API, or similar',
+      'Understanding of video production workflows',
+      'Experience building production systems',
+      'Creative mindset — you care about output quality',
+    ],
+    benefits: [
+      'Competitive salary + equity',
+      'Flexible remote/hybrid',
+      'GPU compute budget for experiments',
+      'Conference and learning budget',
+      '30 days vacation',
+    ],
+    placeholder: true,
+  },
+  {
+    slug: 'producer',
+    title: 'Producer',
+    department: 'Production',
+    location: 'Berlin',
+    type: 'Full-time',
+    description: 'Manage client relationships and production timelines. You\'ll be the bridge between creative teams and clients, ensuring projects run smoothly from brief to delivery.',
+    requirements: [
+      '3+ years production experience in video/creative',
+      'Excellent client communication skills',
+      'Experience with project management tools',
+      'Understanding of video production process',
+      'Ability to manage multiple projects simultaneously',
+    ],
+    benefits: [
+      'Competitive salary',
+      'Hybrid work (3 days in studio)',
+      'Team retreats',
+      'Learning budget',
+      '30 days vacation',
+    ],
+    placeholder: true,
+  },
+];

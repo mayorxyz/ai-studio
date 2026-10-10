@@ -1,12 +1,16 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projects } from '../data';
-import { CaptionStrip, Section, MediaCell } from '../components/Shared';
+import { projects } from '../content';
+import { CaptionStrip, Section, MediaCell } from '../components/ui';
+import { PageHeader } from '../components/sections';
+import { Seo } from '../components/Seo';
+import { routes } from '../config/routes';
 
 const categories = ['ALL', 'FILM', 'ANIMATION', 'AI VIDEO', 'BRAND', 'AUTOMATION'];
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState('ALL');
+  const seo = routes.find(r => r.path === '/work')!.seo;
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'ALL') return projects;
@@ -14,22 +18,14 @@ export default function Work() {
   }, [activeFilter]);
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="p-4 lg:p-8 pt-12 lg:pt-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            The <span className="italic font-serif text-[var(--color-accent)]">work.</span>
-          </h1>
-          <p className="mt-4 text-base text-[var(--color-text-muted)] max-w-lg">
-            A selection of films, animations, AI-generated content, and brand work from the past two years.
-          </p>
-        </div>
-      </section>
-
-      <CaptionStrip index="01" label="WORK" right={`${projects.length} PROJECTS`} />
-
-      {/* Filters */}
+    <>
+      <Seo title={seo.title} description={seo.description} />
+      <PageHeader
+        title="The"
+        accentWord="work."
+        description="A selection of films, animations, AI-generated content, and brand work from the past two years."
+        caption={{ index: '01', label: 'WORK', right: `${projects.length} PROJECTS` }}
+      />
       <Section className="p-4 lg:p-8">
         <div className="flex flex-wrap gap-2 mb-8">
           {categories.map((cat) => (
@@ -49,8 +45,6 @@ export default function Work() {
             {filteredProjects.length} results
           </span>
         </div>
-
-        {/* Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-line)]">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, i) => (
@@ -76,6 +70,6 @@ export default function Work() {
           </AnimatePresence>
         </motion.div>
       </Section>
-    </div>
+    </>
   );
 }

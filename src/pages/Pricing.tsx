@@ -1,83 +1,46 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { plans, faqItems } from '../data';
-import { CaptionStrip, Section, Accordion } from '../components/Shared';
+import { plans, faqItems } from '../content';
+import { CaptionStrip, Section, Accordion } from '../components/ui';
+import { PageHeader, CTASection } from '../components/sections';
+import { Seo } from '../components/Seo';
+import { routes } from '../config/routes';
 import { Check } from 'lucide-react';
 
 export default function Pricing() {
   const [isRetainer, setIsRetainer] = useState(false);
+  const seo = routes.find(r => r.path === '/pricing')!.seo;
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="p-4 lg:p-8 pt-12 lg:pt-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            Simple <span className="italic font-serif text-[var(--color-accent)]">pricing.</span>
-          </h1>
-          <p className="mt-4 text-base text-[var(--color-text-muted)] max-w-lg">
-            Fixed quotes, no surprises. Choose a plan that fits your project scope and timeline.
-          </p>
-        </div>
-      </section>
-
-      <CaptionStrip index="01" label="PLANS" />
-
-      {/* Toggle */}
+    <>
+      <Seo title={seo.title} description={seo.description} />
+      <PageHeader
+        title="Simple"
+        accentWord="pricing."
+        description="Fixed quotes, no surprises. Choose a plan that fits your project scope and timeline."
+        caption={{ index: '01', label: 'PLANS' }}
+      />
       <Section className="p-4 lg:p-8">
         <div className="flex items-center justify-center mb-8">
           <div className="inline-flex border border-[var(--color-line)]">
-            <button
-              onClick={() => setIsRetainer(false)}
-              className={`px-4 py-2 font-mono text-[11px] tracking-wider transition-all ${
-                !isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'
-              }`}
-            >
-              PROJECT
-            </button>
-            <button
-              onClick={() => setIsRetainer(true)}
-              className={`px-4 py-2 font-mono text-[11px] tracking-wider border-l border-[var(--color-line)] transition-all ${
-                isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'
-              }`}
-            >
-              RETAINER
-            </button>
+            <button onClick={() => setIsRetainer(false)} className={`px-4 py-2 font-mono text-[11px] tracking-wider transition-all ${!isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'}`}>PROJECT</button>
+            <button onClick={() => setIsRetainer(true)} className={`px-4 py-2 font-mono text-[11px] tracking-wider border-l border-[var(--color-line)] transition-all ${isRetainer ? 'bg-white text-black' : 'text-[var(--color-text-muted)] hover:text-white'}`}>RETAINER</button>
           </div>
         </div>
-
-        {/* Plans grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-line)]">
           {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`bg-[var(--color-bg)] p-6 flex flex-col relative ${
-                plan.highlighted ? 'ring-1 ring-[var(--color-accent)]' : ''
-              }`}
-            >
+            <motion.div key={plan.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className={`bg-[var(--color-bg)] p-6 flex flex-col relative ${plan.highlighted ? 'ring-1 ring-[var(--color-accent)]' : ''}`}>
               {plan.badge && (
-                <div className={`absolute top-0 right-0 px-2 py-1 font-mono text-[9px] tracking-wider ${
-                  plan.highlighted ? 'bg-[var(--color-accent)] text-black' : 'bg-[var(--color-line-strong)] text-[var(--color-text-muted)]'
-                }`}>
-                  {plan.badge}
-                </div>
+                <div className={`absolute top-0 right-0 px-2 py-1 font-mono text-[9px] tracking-wider ${plan.highlighted ? 'bg-[var(--color-accent)] text-black' : 'bg-[var(--color-line-strong)] text-[var(--color-text-muted)]'}`}>{plan.badge}</div>
               )}
               <div className="mb-6">
                 <h3 className="text-lg font-bold tracking-tight">{plan.name}</h3>
                 <p className="font-mono text-[10px] text-[var(--color-text-dim)] tracking-wider mt-1">{plan.tagline}</p>
               </div>
               <div className="mb-6">
-                <div className="text-3xl font-bold tracking-tight">
-                  {isRetainer ? plan.priceRetainer : plan.priceProject}
-                </div>
-                <div className="font-mono text-[10px] text-[var(--color-text-dim)] mt-1">
-                  {plan.name === 'Custom' ? '' : isRetainer ? 'PER MONTH' : 'STARTING FROM'}
-                </div>
+                <div className="text-3xl font-bold tracking-tight">{isRetainer ? plan.priceRetainer : plan.priceProject}</div>
+                <div className="font-mono text-[10px] text-[var(--color-text-dim)] mt-1">{plan.name === 'Custom' ? '' : isRetainer ? 'PER MONTH' : 'STARTING FROM'}</div>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((feature) => (
@@ -87,14 +50,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link
-                to="/contact"
-                className={`block text-center py-3 font-mono text-[11px] tracking-wider transition-colors ${
-                  plan.highlighted
-                    ? 'bg-[var(--color-accent)] text-black hover:bg-white'
-                    : 'border border-[var(--color-line-strong)] text-[var(--color-text)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]'
-                }`}
-              >
+              <Link to="/contact" className={`block text-center py-3 font-mono text-[11px] tracking-wider transition-colors ${plan.highlighted ? 'bg-[var(--color-accent)] text-black hover:bg-white' : 'border border-[var(--color-line-strong)] text-[var(--color-text)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]'}`}>
                 {plan.name === 'Custom' ? 'CONTACT US' : 'GET STARTED'}
               </Link>
             </motion.div>
@@ -102,7 +58,6 @@ export default function Pricing() {
         </div>
       </Section>
 
-      {/* Trust strip */}
       <CaptionStrip index="02" label="GUARANTEES" />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--color-line)]">
         {['FIXED QUOTES', 'REVISIONS INCLUDED', 'FULL RIGHTS TRANSFER', 'NDA ON REQUEST'].map((item) => (
@@ -112,7 +67,6 @@ export default function Pricing() {
         ))}
       </div>
 
-      {/* FAQ */}
       <CaptionStrip index="03" label="FAQ" />
       <Section className="p-4 lg:p-8">
         <div className="max-w-2xl">
@@ -120,22 +74,7 @@ export default function Pricing() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="p-4 lg:p-8 border-t border-[var(--color-line)]">
-        <div className="text-center py-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Still have <span className="italic font-serif text-[var(--color-accent)]">questions?</span>
-          </h2>
-          <p className="mt-4 text-sm text-[var(--color-text-muted)] max-w-md mx-auto">
-            Every project is unique. Let's discuss your specific needs and find the right plan.
-          </p>
-          <div className="mt-8">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-black font-mono text-[11px] tracking-wider px-6 py-3 hover:bg-[var(--color-accent)] transition-colors">
-              TALK TO US
-            </Link>
-          </div>
-        </div>
-      </Section>
-    </div>
+      <CTASection title="Still have" accentWord="questions?" description="Every project is unique. Let's discuss your specific needs." primaryLabel="TALK TO US" primaryHref="/contact" />
+    </>
   );
 }
