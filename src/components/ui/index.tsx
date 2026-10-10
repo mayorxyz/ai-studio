@@ -1,7 +1,7 @@
 import { ReactNode, useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-// Caption strip between sections
+// Caption Strip
 export function CaptionStrip({ index, label, right }: { index: string; label: string; right?: string }) {
   return (
     <div className="border-t border-b border-[var(--color-line)] px-4 lg:px-8 py-3 flex items-center justify-between">
@@ -17,7 +17,7 @@ export function CaptionStrip({ index, label, right }: { index: string; label: st
   );
 }
 
-// Section wrapper with fade-up animation
+// Section wrapper
 export function Section({ children, className = '', id }: { children: ReactNode; className?: string; id?: string }) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -36,33 +36,7 @@ export function Section({ children, className = '', id }: { children: ReactNode;
   );
 }
 
-// Stagger children
-export function StaggerChildren({ children, className = '' }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: 0.06 } },
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export const staggerItem = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-// Media cell with hover preview
+// Media Cell
 export function MediaCell({ 
   title, 
   description, 
@@ -70,7 +44,10 @@ export function MediaCell({
   index, 
   color, 
   href,
-  year 
+  year,
+  image,
+  video,
+  poster,
 }: { 
   title: string; 
   description: string; 
@@ -79,8 +56,22 @@ export function MediaCell({
   color: string;
   href: string;
   year?: number;
+  image?: string;
+  video?: string;
+  poster?: string;
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isHovered && video) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isHovered, video]);
 
   return (
     <a
@@ -89,40 +80,38 @@ export function MediaCell({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Top bar */}
       <div className="flex items-center justify-between px-3 py-2 border-b border-[var(--color-line)]">
         <span className="font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">{category}</span>
         <span className={`font-mono text-[10px] tracking-wider transition-colors ${isHovered ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-dim)]'}`}>{index}</span>
       </div>
-      {/* Media area */}
       <div className="relative aspect-video overflow-hidden" style={{ backgroundColor: color }}>
-        {/* Animated gradient to simulate video */}
-        <div 
-          className={`absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-40'}`}
-          style={{
-            background: `linear-gradient(135deg, ${color} 0%, ${color}dd 50%, ${color}88 100%)`,
-          }}
-        />
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `linear-gradient(${color === '#1a1a2e' ? '#ffffff' : '#ffffff'}08 1px, transparent 1px), linear-gradient(90deg, ${color === '#1a1a2e' ? '#ffffff' : '#ffffff'}08 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
-        }} />
-        {/* Play indicator on hover */}
+        {video && isHovered ? (
+          <video
+            ref={videoRef}
+            src={video}
+            poster={poster || image}
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (image || poster) ? (
+          <img src={image || poster} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <>
+            <div className="absolute inset-0 opacity-40" style={{ background: `linear-gradient(135deg, ${color} 0%, ${color}dd 50%, ${color}88 100%)` }} />
+            <div className="absolute inset-0 opacity-20" style={{
+              backgroundImage: 'linear-gradient(#ffffff08 1px, transparent 1px), linear-gradient(90deg, #ffffff08 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+            }} />
+          </>
+        )}
         <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
           <div className="w-10 h-10 border border-white/30 flex items-center justify-center">
             <div className="w-0 h-0 border-l-[8px] border-l-white border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent ml-1" />
           </div>
         </div>
-        {/* Scan line effect */}
-        {isHovered && (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute inset-x-0 h-px bg-white/10 animate-pulse" style={{ top: '30%' }} />
-            <div className="absolute inset-x-0 h-px bg-white/5 animate-pulse" style={{ top: '60%', animationDelay: '0.5s' }} />
-          </div>
-        )}
       </div>
-      {/* Bottom info */}
       <div className="px-3 py-3 border-t border-[var(--color-line)]">
         <div className="flex items-start justify-between gap-2">
           <div>
@@ -136,7 +125,7 @@ export function MediaCell({
   );
 }
 
-// Tag/Badge component
+// Tag
 export function Tag({ children, accent }: { children: ReactNode; accent?: boolean }) {
   return (
     <span className={`inline-block px-2 py-0.5 border font-mono text-[10px] tracking-wider ${
@@ -147,19 +136,21 @@ export function Tag({ children, accent }: { children: ReactNode; accent?: boolea
   );
 }
 
-// Button component
+// Button
 export function Button({ 
   children, 
   variant = 'primary', 
   className = '', 
   onClick,
-  href 
+  href,
+  type = 'button',
 }: { 
   children: ReactNode; 
   variant?: 'primary' | 'outline' | 'ghost'; 
   className?: string;
   onClick?: () => void;
   href?: string;
+  type?: 'button' | 'submit' | 'reset';
 }) {
   const base = 'inline-flex items-center justify-center gap-2 font-mono text-[11px] tracking-wider px-5 py-3 transition-all duration-180 cursor-pointer';
   const variants = {
@@ -177,13 +168,13 @@ export function Button({
   }
 
   return (
-    <button onClick={onClick} className={`${base} ${variants[variant]} ${className}`}>
+    <button type={type} onClick={onClick} className={`${base} ${variants[variant]} ${className}`}>
       {children}
     </button>
   );
 }
 
-// Ticker marquee
+// Ticker
 export function Ticker({ items }: { items: string[] }) {
   const doubled = [...items, ...items];
   return (
@@ -200,7 +191,7 @@ export function Ticker({ items }: { items: string[] }) {
   );
 }
 
-// Counter animation
+// Counter
 export function Counter({ value, label }: { value: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -238,7 +229,7 @@ export function Counter({ value, label }: { value: string; label: string }) {
   );
 }
 
-// FAQ Accordion
+// Accordion
 export function Accordion({ items }: { items: { q: string; a: string }[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -249,6 +240,7 @@ export function Accordion({ items }: { items: { q: string; a: string }[] }) {
           <button
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             className="w-full flex items-center justify-between px-4 py-4 text-left hover:bg-[var(--color-surface)] transition-colors"
+            aria-expanded={openIndex === i}
           >
             <span className="text-sm font-medium pr-4">{item.q}</span>
             <span className={`font-mono text-xs text-[var(--color-text-dim)] transition-transform ${openIndex === i ? 'rotate-45' : ''}`}>+</span>

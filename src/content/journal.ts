@@ -1,0 +1,48 @@
+import type { JournalPost } from './types';
+
+export const journalPosts: JournalPost[] = [
+  {
+    slug: 'ai-video-pipeline-guide',
+    title: 'Building an AI Video Pipeline: Our Complete Guide',
+    category: 'AI VIDEO',
+    date: '2025-01-15',
+    readTime: '8 min',
+    excerpt: 'How we built a system that produces 500+ product videos daily using AI tools and custom automation.',
+    color: '#0d2137',
+    body: 'Full article content would go here. This is a placeholder for the blog post body. In production, this would contain rich text with images, embeds, and formatted content.',
+    placeholder: true,
+  },
+  {
+    slug: 'storytelling-with-ai',
+    title: 'Can AI Tell Stories? Lessons from Our Short Film',
+    category: 'BEHIND THE SCENES',
+    date: '2025-01-08',
+    readTime: '6 min',
+    excerpt: 'What we learned making a fully AI-generated short film about digital consciousness.',
+    color: '#2a1a1a',
+    body: 'Full article content would go here. This is a placeholder for the blog post body.',
+    placeholder: true,
+  },
+  {
+    slug: 'motion-design-system',
+    title: 'Designing a Motion System That Scales',
+    category: 'PROCESS',
+    date: '2024-12-20',
+    readTime: '5 min',
+    excerpt: 'How we created 120+ reusable motion components for a fintech brand.',
+    color: '#1e1e3a',
+    body: 'Full article content would go here. This is a placeholder for the blog post body.',
+    placeholder: true,
+  },
+  {
+    slug: 'color-grading-tips',
+    title: '5 Color Grading Techniques We Use on Every Project',
+    category: 'TUTORIAL',
+    date: '2024-12-10',
+    readTime: '4 min',
+    excerpt: 'Our go-to color grading workflow in DaVinci Resolve for cinematic results.',
+    color: '#1a2e1a',
+    body: 'Full article content would go here. This is a placeholder for the blog post body.',
+    placeholder: true,
+  },
+];
