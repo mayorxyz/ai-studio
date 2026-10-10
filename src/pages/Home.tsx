@@ -1,108 +1,113 @@
 import { Link } from 'react-router-dom';
-import { studio, projects, services, testimonials, clients } from '../content';
+import { studio, projects } from '../content';
 import { CaptionStrip, Section, MediaCell, Ticker } from '../components/ui';
-import { HeroSection, CTASection, FeatureGrid, LogoStrip, TestimonialSlider } from '../components/sections';
+import { CTASection } from '../components/sections';
 import { Seo } from '../components/Seo';
 import { routes } from '../config/routes';
 import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
-  const featuredProjects = projects.filter(p => p.featured).slice(0, 6);
+  const featuredGames = projects.filter(p => p.featured).slice(0, 6);
   const seo = routes.find(r => r.path === '/')!.seo;
 
   return (
     <>
       <Seo title={seo.title} description={seo.description} />
       
-      <HeroSection name={studio.name} city={studio.city} tickerItems={studio.tickerItems} />
-      
+      {/* Hero */}
+      <section className="relative h-[100vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#0d1520] to-[#0a0a0a]" />
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-[var(--color-bg)]/50" />
+        </div>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <div className="mb-8">
+            <span className="font-mono text-sm tracking-[0.3em] text-[var(--color-text-muted)]">{studio.name} GAMES</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
+            We make <span className="text-[var(--color-accent)]">games.</span>
+          </h1>
+          <p className="mt-6 text-base md:text-lg text-[var(--color-text-muted)] max-w-lg mx-auto leading-relaxed">
+            Independent game studio crafting immersive experiences across multiple genres and platforms.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link to="/games" className="inline-flex items-center gap-2 bg-white text-black font-mono text-[11px] tracking-wider px-6 py-3 hover:bg-[var(--color-accent)] transition-colors">
+              VIEW OUR GAMES
+            </Link>
+            <Link to="/trailers" className="inline-flex items-center gap-2 border border-[var(--color-line-strong)] text-white font-mono text-[11px] tracking-wider px-6 py-3 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors">
+              WATCH TRAILERS
+            </Link>
+          </div>
+          <div className="mt-12 font-mono text-[10px] tracking-wider text-[var(--color-text-dim)]">
+            {studio.tickerItems.slice(0, 5).join(' · ')}
+          </div>
+        </div>
+      </section>
+
       <Ticker items={studio.tickerItems} />
 
-      <CaptionStrip index="01" label="SHOWCASES" right="BUILT WITH NOCTURN" />
+      <CaptionStrip index="01" label="OUR GAMES" right={`${projects.length} TITLES`} />
       <Section className="p-4 lg:p-8">
         <div className="flex items-end justify-between mb-8">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            See it <span className="italic font-serif text-[var(--color-accent)]">run.</span>
+            Shipped <span className="text-[var(--color-accent)]">titles.</span>
           </h2>
-          <Link to="/work" className="hidden sm:inline-flex items-center gap-2 font-mono text-[11px] tracking-wider text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
-            ALL SHOWCASES <ArrowRight size={12} />
+          <Link to="/games" className="hidden sm:inline-flex items-center gap-2 font-mono text-[11px] tracking-wider text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
+            ALL GAMES <ArrowRight size={12} />
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-line)]">
-          {featuredProjects.map((project, i) => (
+          {featuredGames.map((game, i) => (
             <MediaCell
-              key={project.slug}
-              title={project.title}
-              description={project.summary}
-              category={project.category[0]}
+              key={game.slug}
+              title={game.title}
+              description={game.summary}
+              category={game.category[0]}
               index={String(i + 1).padStart(2, '0')}
-              color={project.color}
-              href={`/work/${project.slug}`}
-              year={project.year}
+              color={game.color}
+              href={`/games/${game.slug}`}
+              year={game.year}
+              image={game.thumbnail}
             />
           ))}
         </div>
       </Section>
 
-      <CaptionStrip index="02" label="ENGINE FEATURES" />
+      <CaptionStrip index="02" label="GENRES" />
       <Section className="p-4 lg:p-8">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-          Built for <span className="italic font-serif text-[var(--color-accent)]">performance.</span>
+          What we <span className="text-[var(--color-accent)]">build.</span>
         </h2>
-        <FeatureGrid
-          columns={3}
-          items={services.map(s => ({
-            number: s.number,
-            title: s.title,
-            description: s.summary,
-            tags: s.tags,
-          }))}
-        />
-      </Section>
-
-      <CaptionStrip index="03" label="WORKFLOW" />
-      <Section className="p-4 lg:p-8">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-          Install to <span className="italic font-serif text-[var(--color-accent)]">ship.</span>
-        </h2>
-        <div className="relative">
-          <div className="absolute top-6 left-0 right-0 h-px bg-[var(--color-line)] hidden lg:block" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-0">
-            {[
-              { num: '01', title: 'Install', desc: 'Download and set up in minutes.' },
-              { num: '02', title: 'Prototype', desc: 'Build core gameplay with templates.' },
-              { num: '03', title: 'Production', desc: 'Scale with full engine features.' },
-              { num: '04', title: 'Polish', desc: 'Profile and optimize performance.' },
-              { num: '05', title: 'Ship', desc: 'One-click build for all platforms.' },
-            ].map((step, i) => (
-              <div key={i} className="relative lg:px-4">
-                <div className="relative z-10 w-12 h-12 border border-[var(--color-line)] flex items-center justify-center mb-4 bg-[var(--color-bg)]">
-                  <span className="font-mono text-xs text-[var(--color-accent)]">{step.num}</span>
-                </div>
-                <h4 className="text-sm font-semibold mb-1">{step.title}</h4>
-                <p className="text-xs text-[var(--color-text-muted)]">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <CaptionStrip index="04" label="PROOF" right="FROM CLIENTS" />
-      <Section className="p-4 lg:p-8">
-        <LogoStrip logos={clients} />
-        <div className="mt-12">
-          <TestimonialSlider testimonials={testimonials} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-line)]">
+          {[
+            { num: '01', title: 'Roguelikes', desc: 'Procedural dungeons, permadeath, endless replayability.' },
+            { num: '02', title: 'Racing', desc: 'High-speed arcade racing with custom physics.' },
+            { num: '03', title: 'FPS', desc: 'Tactical multiplayer shooters with unique mechanics.' },
+            { num: '04', title: 'Open World', desc: 'Vast explorable worlds with living ecosystems.' },
+            { num: '05', title: 'Strategy', desc: 'Deep RTS with advanced AI and magical warfare.' },
+            { num: '06', title: 'VR', desc: 'Immersive virtual reality experiences.' },
+          ].map((genre) => (
+            <div key={genre.num} className="bg-[var(--color-bg)] p-6 hover:bg-[var(--color-surface)] transition-colors">
+              <div className="font-mono text-[10px] text-[var(--color-accent)] tracking-wider mb-3">{genre.num}</div>
+              <h3 className="text-lg font-semibold tracking-tight mb-2">{genre.title}</h3>
+              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{genre.desc}</p>
+            </div>
+          ))}
         </div>
       </Section>
 
       <CTASection
-        eyebrow="v1.0 RELEASED"
-        title="Start"
-        accentWord="building."
-        primaryLabel="DOWNLOAD ENGINE"
-        primaryHref="/start"
-        secondaryLabel="VIEW DOCS"
-        secondaryHref="/resources"
+        eyebrow="NOW AVAILABLE"
+        title="Play our"
+        accentWord="games."
+        primaryLabel="VIEW ALL GAMES"
+        primaryHref="/games"
+        secondaryLabel="WATCH TRAILERS"
+        secondaryHref="/trailers"
       />
     </>
   );

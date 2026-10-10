@@ -2,7 +2,7 @@ import { studio } from '../content/studio';
 
 export const site = {
   name: studio.name,
-  fullName: `${studio.name} ENGINE`,
+  fullName: `${studio.name} GAMES`,
   url: studio.url,
   tagline: studio.tagline,
   theme: {
@@ -11,39 +11,36 @@ export const site = {
     surface: '#111111',
   },
   nav: {
-    primary: ['HOME', 'WORK', 'SERVICES', 'PROCESS', 'STUDIO', 'JOURNAL'],
-    secondary: ['PRICING'],
+    primary: ['HOME', 'GAMES', 'TRAILERS', 'ABOUT'],
+    secondary: [],
   },
   footer: {
     groups: [
       {
-        title: 'ENGINE',
+        title: 'GAMES',
         links: [
-          { label: 'Features', path: '/services' },
-          { label: 'Showcases', path: '/work' },
-          { label: 'Process', path: '/process' },
-          { label: 'Pricing', path: '/pricing' },
-          { label: 'Download', path: '/start' },
+          { label: 'Ember', path: '/games/ember' },
+          { label: 'Horizon', path: '/games/horizon' },
+          { label: 'Neon', path: '/games/neon' },
+          { label: 'Verdant', path: '/games/verdant' },
+          { label: 'Atlas', path: '/games/atlas' },
+          { label: 'Pulse', path: '/games/pulse' },
         ],
       },
       {
-        title: 'DEVELOPERS',
+        title: 'STUDIO',
         links: [
-          { label: 'Documentation', path: '/resources' },
-          { label: 'Tutorials', path: '/journal' },
-          { label: 'API Reference', path: '/resources' },
-          { label: 'Community', path: '/studio' },
-          { label: 'Workshops', path: '/workshops' },
-        ],
-      },
-      {
-        title: 'COMPANY',
-        links: [
-          { label: 'About', path: '/studio' },
-          { label: 'Careers', path: '/careers' },
-          { label: 'Press', path: '/press' },
+          { label: 'About', path: '/about' },
+          { label: 'Trailers', path: '/trailers' },
           { label: 'Contact', path: '/contact' },
-          { label: 'Partners', path: '/partners' },
+        ],
+      },
+      {
+        title: 'FOLLOW',
+        links: [
+          { label: 'YouTube', path: studio.socials.youtube },
+          { label: 'Twitter', path: studio.socials.vimeo },
+          { label: 'Instagram', path: studio.socials.instagram },
         ],
       },
     ],
